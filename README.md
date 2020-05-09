@@ -12,19 +12,26 @@ I am Hacker
 
 ## Install
 ```bash:#
-go get github.com/yuki9431/I_am_hacker
+git clone github.com/yuki9431/I_am_hacker
 
-go build
+go build -o ihacker
+
+mv ihacker $GOPATH/bin
 ```
 
-## How to Use
+## How to Start
 ```go:main.go
 $ ihacker 
 
-or
+select your textfile
 
-$ ihacker -t text.c
+$ ihacker text.c
 ```
+
+## How to Start
+Just press the Key.
+press Ctrl + C to stop.
+
 
 ## Author
 [Dillen H. Tomida](https://twitter.com/t0mihir0)
