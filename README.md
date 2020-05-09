@@ -6,6 +6,7 @@ I am Hacker
 
 ## Description
 キーボードの任意のキーを押すことで、画面にテキストを出力できます。
+![Demo](https://github.com/yuki9431/Demo/blob/master/ihacker/ihacker_demo.gif?raw=true)
 
 ## Requirement
 - Go 1.10 or later
