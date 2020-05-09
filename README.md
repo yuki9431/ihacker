@@ -12,18 +12,20 @@ I am Hacker
 
 ## Install
 ```bash:#
-git clone github.com/yuki9431/I_am_hacker
+$ git clone https://github.com/yuki9431/I_am_hacker.git
 
-go build -o ihacker
+$ cd I_am_hacker/
 
-mv ihacker $GOPATH/bin
+$ go build -o ihacker
+
+$ mv ihacker $GOPATH/bin
 ```
 
 ## How to Start
 ```go:main.go
 $ ihacker 
 
-select your textfile
+// Or select your textfile.
 
 $ ihacker text.c
 ```
