@@ -4,6 +4,7 @@ import (
 	"sync"
 	"syscall"
 
+	ct "github.com/daviddengcn/go-colortext"
 	"github.com/pkg/term/termios"
 )
 
@@ -56,4 +57,21 @@ func SetRaw(fd int) error {
 	n.Cc[syscall.VMIN] = 1
 	n.Cc[syscall.VTIME] = 0
 	return termios.Tcsetattr(uintptr(fd), termios.TCSANOW, (*syscall.Termios)(&n))
+}
+
+// Clear console
+func Clear() {
+	clear := "\033[H\033[2J"
+	print(clear)
+}
+
+// ChangeGreenColor changes characters color.
+func ChangeGreenColor() {
+	bright := false
+	ct.Foreground(ct.Green, bright)
+}
+
+// ResetColor changes characters to original colors
+func ResetColor() {
+	ct.ResetColor()
 }

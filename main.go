@@ -9,16 +9,8 @@ import (
 	"github.com/c-bata/go-prompt"
 )
 
-const (
-	// BUFSIZE output number of charaters
-	BUFSIZE = 3
-
-	// CLEAR clear console
-	CLEAR = "\033[H\033[2J"
-
-	// GREENCHAR set color
-	GREENCHAR = "\033[H\033[32m"
-)
+// BUFSIZE output number of charaters
+const BUFSIZE = 3
 
 func main() {
 
@@ -30,8 +22,9 @@ func main() {
 	defer Restore()
 
 	// clear console and set green color
-	print(CLEAR)
-	print(GREENCHAR)
+	Clear()
+	ChangeGreenColor()
+	defer ResetColor()
 
 	// select text file
 	flag.Parse()
