@@ -32,8 +32,8 @@ $ ihacker text.c
 ```
 
 ## How to Start
-Just press the Key.
-press Ctrl + C to stop.
+Just press the Key.  
+Press Ctrl + C to stop.
 
 
 ## Author
