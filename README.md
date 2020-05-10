@@ -24,7 +24,7 @@ $ go build -o ihacker
 $ mv ihacker $GOPATH/bin
 ```
 
-## How to Start
+## How to Use
 ```
 Usage:
   ihacker [options] [<file>]
@@ -39,11 +39,8 @@ Example:
   $ ihacker text.c
   $ ihacker -s 5
 ```
-
-## How to Use
 Just press the Key to output your code.  
 Press Ctrl + C to stop.
-
 
 ## Author
 [Dillen H. Tomida](https://twitter.com/t0mihir0)
