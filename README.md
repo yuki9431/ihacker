@@ -2,7 +2,7 @@ I am Hacker
 ====
 ## Overview
 ハッカーになった気分になれるジョークツールです。  
-デフォルトで出力されるコードは一応動作します。
+デフォルトで出力されるコードは某歌姫のPVから拝借いたしました。
 
 ## Description
 キーボードの任意のキーを押すことで、画面にテキストを出力できます。
@@ -12,6 +12,8 @@ I am Hacker
 - Go 1.10 or later
 
 ## Install
+download from release or use git command.
+
 ```bash:#
 $ git clone https://github.com/yuki9431/I_am_hacker.git
 
@@ -23,16 +25,23 @@ $ mv ihacker $GOPATH/bin
 ```
 
 ## How to Start
-```go:main.go
-$ ihacker 
+```
+Usage:
+  ihacker [options] [<file>]
 
-// Or select your textfile.
+Options:
+  -h, --help      show this screen.
+  -v, --version   show version.
+  -s <speed>      Set speed to output [default: 3]
 
-$ ihacker text.c
+Example:
+  $ ihacker 
+  $ ihacker text.c
+  $ ihacker -s 5
 ```
 
 ## How to Start
-Just press the Key.  
+Just press the Key to output your code.  
 Press Ctrl + C to stop.
 
 
