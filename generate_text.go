@@ -1,6 +1,30 @@
 package main
 
-var samplecode = []byte(`
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+)
+
+func generateCode(c Config) (code []byte, err error) {
+
+	if c.TargetFile != "" {
+		data, err := ioutil.ReadFile(c.TargetFile)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+
+		code = data
+
+	} else {
+		code = []byte(systematicLove)
+	}
+
+	return
+}
+
+const systematicLove = `
 #include <iostream>
 #include <math.h>
 
@@ -70,4 +94,4 @@ bool is_in_love(int x, int y)
         return false;
     }
 }
-`)
+`
