@@ -8,9 +8,6 @@ I am Hacker
 キーボードの任意のキーを押すことで、画面にテキストを出力できます。
 ![Demo](https://github.com/yuki9431/Demo/blob/master/ihacker/ihacker_demo.gif?raw=true)
 
-## Requirement
-- Go 1.10 or later
-
 ## Install
 download from release or use git command.
 
@@ -24,7 +21,7 @@ $ go build -o ihacker
 $ mv ihacker $GOPATH/bin
 ```
 
-## How to Use
+## Usage
 ```
 Usage:
   ihacker [options] [<file>]
@@ -44,3 +41,6 @@ Press Ctrl + C to stop.
 
 ## Author
 [Dillen H. Tomida](https://twitter.com/t0mihir0)
+
+## License
+This software is licensed under the MIT license, see [LICENSE](./LICENSE) for more information.
