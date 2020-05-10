@@ -40,7 +40,7 @@ Example:
   $ ihacker -s 5
 ```
 
-## How to Start
+## How to Use
 Just press the Key to output your code.  
 Press Ctrl + C to stop.
 
