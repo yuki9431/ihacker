@@ -13,7 +13,7 @@ import (
 var version = `ihacker version 1.0.0
 Copyright (c) 2020 Dillen Hiroyuki
 
-https://github.com/yuki9431/I_am_hacker`
+https://github.com/yuki9431/ihacker`
 
 var doc = `
 Usage:

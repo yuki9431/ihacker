@@ -1,4 +1,4 @@
-I am Hacker
+ihacker
 ====
 ## Overview
 ハッカーになった気分になれるジョークコマンドです。  
@@ -8,21 +8,27 @@ I am Hacker
 キーボードの任意のキーを押すことで、画面にテキストを出力できます。
 ![Demo](https://github.com/yuki9431/Demo/blob/master/ihacker/ihacker_demo.gif?raw=true)
 
+## Requirement
+- Go 1.10 or later
+
 ## Install
-download from release or use git command.
+Edit your ~/.bash_profile to add the following line:
+```bash:~/.bash_profile
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+```
 
+
+And install ihacker.
 ```bash:#
-$ git clone https://github.com/yuki9431/I_am_hacker.git
+$ GO111MODULE=off go get -u github.com/yuki9431/ihacker
 
-$ cd I_am_hacker/
-
-$ go build -o ihacker
-
-$ mv ihacker $GOPATH/bin
+$ ihacker -v
 ```
 
 ## Usage
-```
+
+```bash:#
 Usage:
   ihacker [options] [<file>]
 
