@@ -2,16 +2,16 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"syscall"
+    "os"
+	"os/signal"
+    "syscall"
 
-	"github.com/c-bata/go-prompt"
 	"github.com/docopt/docopt-go"
 	"github.com/yuki9431/logger"
 )
 
-var version = `ihacker version 1.0.0
-Copyright (c) 2020 Dillen Hiroyuki
+var version = `ihacker version 1.0.1
+Copyright (c) 2022 Dillen Hiroyuki
 
 https://github.com/yuki9431/ihacker`
 
@@ -22,7 +22,7 @@ Usage:
 Options:
   -h, --help      show this screen.
   -v, --version   show version.
-  -s <speed>      Set speed to output [default: 3]`
+  -s <speed>      Set speed to output [default: 5]`
 
 // Config arguments that can be acquired from console
 type Config struct {
@@ -46,22 +46,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// generate output Text
-	code, err := generateCode(config)
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	// set raw mode
 	if err := SetRaw(syscall.Stdin); err != nil {
 		log.Fatal(err)
 	}
-	defer Restore()
 
 	// clear console and set text to green
 	Clear()
 	ChangeGreenColor()
-	defer ResetColor()
 
 	// current pointer to text
 	pCode := 0
@@ -69,19 +61,35 @@ func main() {
 	// print text when press key
 	bufCh := make(chan []byte, 1)
 	go readBuffer(bufCh)
-	for {
-		if key := prompt.GetKey(<-bufCh); key == prompt.ControlC {
-			fmt.Printf("\nexit.\n")
-			break
-		}
 
-		outputText := string(code[pCode:(pCode + config.Speed)])
-		pCode += config.Speed
-
-		if pCode >= len(code) {
-			break
-		}
-
-		fmt.Print(outputText)
+	// generate output Text
+	code, err := generateCode(config)
+	if err != nil {
+		log.Fatal(err)
 	}
+	
+	go func() {
+		for {
+			<-bufCh
+
+			outputText := string(code[pCode:(pCode + config.Speed)])
+			pCode += config.Speed
+	
+			if pCode >= len(code) {
+				break
+			}
+	
+			fmt.Print(outputText)
+		}
+	}()
+
+	// channel for CTR-C
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, os.Interrupt)
+
+	<-quit
+
+	fmt.Printf("\nexit.\n")
+	defer Restore()
+	defer ResetColor()
 }
